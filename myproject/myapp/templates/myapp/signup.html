@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>भारत चैट - देश के नाम</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff9933, #ffffff, #138808);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .signup-container {
+            max-width: 400px;
+            background-color: #fff;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border-top: 5px solid #138808;
+        }
+
+        h2 {
+            color: #d32f2f;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #d32f2f;
+            color: #fff;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b71c1c;
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #138808;
+            font-weight: bold;
+        }
+
+        .flag-banner {
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to right, #ff9933, #ffffff, #138808);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-bottom: -30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Music (hidden but auto plays) -->
+    <audio autoplay loop>
+        <source src="vasudhaiva_kutumbakam.mp3" type="audio/mpeg">
+        आपका ब्राउज़र म्यूजिक सपोर्ट नहीं करता।
+    </audio>
+
+    <div class="flag-banner"></div>
+
+    <div class="signup-container">
+        <h2>भारत माता की जय</h2>
+
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="full_name" placeholder="पूरा नाम" required>
+            <input type="text" name="mobile_number" placeholder="मोबाइल नंबर (+91)" required>
+            <input type="password" name="password" placeholder="मजबूत पासवर्ड बनाएं" required>
+            <button type="submit">रजिस्टर करें / लॉगिन करें</button>
+        </form>
+
+        <div class="footer-text">Bharat Chat - देश के नाम</div>
+    </div>
+</body>
+</html>
